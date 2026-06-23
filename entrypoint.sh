@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Crear .env dinámicamente con variables de EasyPanel
+cat > /app/.env << EOF
+DISCORD_TOKEN=${DISCORD_TOKEN}
+N8N_WEBHOOK_URL=${N8N_WEBHOOK_URL}
+N8N_WEBHOOK_SECRET=${N8N_WEBHOOK_SECRET}
+ESCALATION_CHANNEL_ID=${ESCALATION_CHANNEL_ID}
+SUPPORT_ROLE_ID=${SUPPORT_ROLE_ID}
+DISCORD_GUILD_ID=${DISCORD_GUILD_ID}
+HUMAN_HANDLING_TTL_MS=${HUMAN_HANDLING_TTL_MS}
+ESCALATION_COOLDOWN_SECONDS=${ESCALATION_COOLDOWN_SECONDS}
+HEALTHCHECK_URL=${HEALTHCHECK_URL}
+EOF
+
+echo "✅ .env creado dinámicamente desde variables de EasyPanel"
+echo "🎯 Iniciando bot..."
+
+# Iniciar el bot
+exec node bot.js
