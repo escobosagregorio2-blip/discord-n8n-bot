@@ -1,0 +1,21 @@
+[Unit]
+Description=Trading Miami Discord Support Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/tradingmiami
+ExecStart=/home/ubuntu/tradingmiami/venv/bin/python discord_bot.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Optional: override token via env instead of hardcoding
+# Environment=DISCORD_TOKEN=your_token_here
+# Environment=N8N_WEBHOOK_URL=https://...
+
+[Install]
+WantedBy=multi-user.target

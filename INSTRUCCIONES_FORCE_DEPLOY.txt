@@ -1,0 +1,75 @@
+================================================================================
+INSTRUCCIONES PARA EJECUTAR FORCE DEPLOY DEL BOT DISCORD
+================================================================================
+
+El bot Discord con sistema de escalación YA ESTÁ LISTO en el archivo bot.js.
+Solo necesitas hacer 2 pasos para que funcione en vivo:
+
+================================================================================
+PASO 1: FORCE PUSH A GITHUB
+================================================================================
+
+OPCIÓN A - Ejecutar el script PowerShell (RECOMENDADO):
+1. Presiona Windows + R
+2. Escribe: powershell
+3. Presiona Enter
+4. En PowerShell, copia y pega esta línea:
+
+   cd "C:\Users\Usuario\claude\Projects\TRADINGMIAMISCHOOL 2"; powershell -ExecutionPolicy Bypass -File "RUN_FORCE_DEPLOY.ps1"
+
+5. Presiona Enter
+6. Si pide autenticación de GitHub, usa:
+   Usuario: escobosagregorio2-blip
+   Password/Token: Tu personal access token de GitHub
+
+OPCIÓN B - Ejecutar comandos manualmente:
+1. Presiona Windows + R
+2. Escribe: powershell
+3. Presiona Enter
+4. Ejecuta estos comandos uno por uno:
+
+   cd "C:\Users\Usuario\claude\Projects\TRADINGMIAMISCHOOL 2"
+   git config user.email "escobosagregorio2@gmail.com"
+   git config user.name "Trading Miami Bot"
+   git add -A
+   git commit -m "fix: escalation system - force sync with bot.js"
+   git push -f origin main
+
+5. Si pide credenciales:
+   Usuario: escobosagregorio2-blip
+   Password/Token: Tu personal access token de GitHub
+
+================================================================================
+PASO 2: REDEPLOY EN EASYPANEL
+================================================================================
+
+1. Abre tu navegador (Chrome, Edge, Firefox, etc.)
+2. Ve a: https://ud046x.easypanel.host
+3. Inicia sesión si es necesario
+4. Busca el proyecto "discord-bot1" o similar
+5. Haz clic en "Force Rebuild" o "Redeploy" (botón rojo/naranja)
+6. Espera a que el deployment se complete
+7. Verifica en los logs que diga:
+   "Bot conectado como: TradingMiamiSchool..."
+   "Escuchando canales: ticket, soporte, support"
+
+================================================================================
+VERIFICACIÓN FINAL
+================================================================================
+
+Una vez completados los pasos:
+1. Verifica que el indicador de estado del bot esté en VERDE
+2. Abre Discord y ve a tu servidor "Trading Miami School"
+3. Prueba escribir "hablar con un humano" en cualquier canal de soporte
+4. Deberías ver una alerta de escalación en el canal #escalacion o similar
+
+================================================================================
+NOTAS IMPORTANTES
+================================================================================
+
+- El bot.js YA tiene implementado el código de escalación (línea 269: detectEscalationIntent)
+- No necesitas hacer cambios en el código, solo hacer push y redeploy
+- Si algo falla, revisa los logs en EasyPanel
+- Si la autenticación de GitHub falla, asegúrate que tu token está configurado
+
+================================================================================
