@@ -2,8 +2,9 @@
 # Usa Node.js oficial como imagen base
 
 FROM node:18-alpine
+          
 
-# Establecer directorio de trabajo
+# Establecer directorio de trabajocommit
 WORKDIR /app
 
 # Copiar package.json y package-lock.json
@@ -32,4 +33,4 @@ env_EOF
 exec node bot.js
 EOF
 RUN chmod +x /app/entrypoint.sh
-ENTRYPOINT ["/app/entrypoint.sh"]Page_UpPage_Up
+ENTRYPOINT ["/app/entrypoint.sh"]
